@@ -1,0 +1,3 @@
+--file algorithms/main.ts
+--require ts-node/register
+./algorithms/**/*.spec.ts

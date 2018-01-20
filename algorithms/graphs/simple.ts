@@ -1,5 +1,3 @@
 export class Something {
-    something() {
-        return 1;
-    }
+  something() { return 1; }
 }

@@ -4,7 +4,7 @@
   "description": "algorithms implementations, solutions, etc.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register ./algorithms/**/*.spec.ts"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
