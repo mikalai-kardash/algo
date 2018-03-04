@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import { Graph } from './models';
 import { createFromFile } from './models.utils';
-import * as fs from 'fs';
 import * as path from 'path';
 
 describe('graph', function () {
