@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { Search } from './models';
 import { SlowSearch } from './slow';
 import { KmpSearch } from './kmp';
+import { AnjushkaSearch } from './anjushka';
 
 describe('search api', () => {
 
@@ -90,6 +91,39 @@ describe('search api', () => {
 
             it('cannot find string', () => {
                 finds('1', '2', undefined);
+            });
+        });
+
+    });
+
+    xdescribe('anjushka', () => {
+        const kmp: Search = new AnjushkaSearch();
+
+        const finds = (text: string, val: string, expectedIndex: number | undefined): void => {
+            const ix = kmp.indexOf(text, val);
+            expect(ix).to.eq(expectedIndex);
+        };
+
+        describe('success', () => {
+
+            it('finds itself', () => {
+                finds('self', 'self', 0);
+            });
+
+            it('finds Hooligan in Hoola-Hoola girls like Hooligans', () => {
+                finds('Hoola-Hoola girls like Hooligans', 'Hooligan', 23);
+            });
+
+            it('eq to 0 when starts from substring', () => {
+                finds('self-made', 'self', 0);
+            });
+
+            it('finds string', () => {
+                finds('elbow mellon', 'w m', 4);
+            });
+
+            it('finds text in the end', () => {
+                finds('elbow mellon', 'llon', 'elbow me'.length);
             });
         });
 
